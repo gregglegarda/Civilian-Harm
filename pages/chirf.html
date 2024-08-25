@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incident Reporting Form</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .form-section {
+        margin-bottom: 2rem;
+      }
+      .form-section h5 {
+        margin-bottom: 1rem;
+      }
+      .form-section hr {
+        margin-top: 0;
+      }
+      .active {
+        background-color: #007bff;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="bg-success" style="position: sticky; top: 0; z-index: 1030; height: 35px;">
+      <div class="container text-center" style="padding-top: 10px; padding-bottom: 10px;">
+        <p class="text-white">CUI</p>
+      </div>
+    </div>
+    
+  <body class="bg-light">
+    <div class="container my-5">
+      <div class="text-center mb-4">
+        <p class="font-weight-bold">**DRAFT**</p>
+      <div class="text-center mt-4">
+        <img src="https://qbellc-my.sharepoint.com/:i:/r/personal/erik_turchin_qbe_net/Documents/us-army-emblem-clipart-png-logo-0.png?csf=1&web=1&e=6p5qOc" alt="logo" class="mx-auto d-block" style="width: 100px; height: auto;"/>
+      </div>
+      <br>
+        <h3>Civilian Harm Incident Reporting Form</h3>
+        <br>
+        <img src="https://qbellc-my.sharepoint.com/:i:/r/personal/erik_turchin_qbe_net/Documents/7d6019f5-daff-42fa-9757-ca13ca200746.jpg?csf=1&web=1&e=J4aqEd" alt="responsive image" class="img-fluid rounded" style="border-radius: 1rem;" />
+      </div>
+      <div class="alert alert-warning" role="alert">
+        The Civilian Harm Incident Report Form (CHIRF) supports CHMR-AP,
+        Objective 6 by standardizing data collection on civilian harm incidents
+        within the DoD. The CHIRF ensures consistent data formatting and
+        improved access across all classification levels, facilitating efficient
+        data sharing and analysis. While initially focused on the DoD, the scope
+        of CHIRF may expand to include other U.S. Government entities and
+        potentially allies, partners, and NGOs.
+      </div>
+      <br>
+      <hr>
+      <form id="incidentForm" onsubmit="validateForm(event)">
+        <div class="form-section jumbotron">
+          <div class="form-group row">
+            <label for="date" class="col-sm-2 col-form-label">Date:</label>
+            <div class="col-sm-4">
+              <input type="date" class="form-control" id="date" required />
+            </div>
+            <div class="col-sm-6 text-right">
+              <button type="reset" class="btn btn-danger">Reset Form</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section jumbotron">
+          <h5>Contact Information</h5>
+          <hr />
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="firstName">First Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder="Enter first name"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="lastName">Last Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder="Enter last name"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="reportingUnit">Reporting Unit:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="reportingUnit"
+                placeholder="Enter the full unit designation of the reporting entity"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="position">Position:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="position"
+                placeholder="Enter position"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="phoneNumber">Phone Number:</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="phoneNumber"
+                placeholder="Enter commercial phone number"
+                required
+              />
+              <p class="help">
+                Please enter a number in the format: +1234567890
+              </p>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="dsn">DSN:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="dsn"
+                placeholder="Enter DSN"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label ">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter email address"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="unit">Unit:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="unit"
+                placeholder="If different from the Reporting Unit, enter your unit"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ccmd">Combatant Command (CCMD):</label>
+            <select class="form-control" id="ccmd">
+              <option>Please Select</option>
+              <option value="">None</option>
+              <option value="AFRICOM">AFRICOM</option>
+      <option value="CENTCOM">CENTCOM</option>
+      <option value="CYBERCOM">CYBERCOM</option>
+      <option value="EUCOM">EUCOM</option>
+      <option value="INDOPACOM">INDOPACOM</option>
+              <option value="NORTHCOM">NORTHCOM</option>
+      <option value="NATO">NATO</option>
+      <option value="SOCOM">SOCOM</option>
+              <option value="SOUTHCOM">SOUTHCOM</option>
+              <option value="SPACECOM">SPACECOM</option>
+      <option value="STRATCOM">STRATCOM</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-section jumbotron">
+          <h5>Initial Review (Phase 1)</h5>
+          <p><em>(DoDI 3000.17 Paragraph 4.4)</em></p>
+          <hr />
+          <div class="form-group">
+            <label>Is the incident date or date range exact or approximate?</label>
+            <div>
+              <input
+                type="radio"
+                class="btn-check"
+                name="incidentDateType"
+                id="exactButton"
+                value="Exact"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-secondary" for="exactButton">Exact</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="incidentDateType"
+                id="approximateButton"
+                value="Approximate"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-secondary" for="approximateButton">Approximate</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="incidentDate"> Incident Date or Date Range:</label>
+            <div class="form-row">
+              <div class="col">
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  id="startDate"
+                  placeholder="Start date and time"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  id="endDate"
+                  placeholder="End date and time"
+                />
+              </div>
+              <div class="col">
+                <select class="form-control" id="timezone">
+                  <option>Please Select</option>
+                  <!-- UTC offset format UTC±[hh][mm] -->
+					<option value="UTC-1200">UTC-12:00 (International Date Line West)</option>
+					<option value="UTC-1100">UTC-11:00 (Coordinated Universal Time-11)</option>
+					<option value="UTC-1000">UTC-10:00 (Hawaii)</option>
+					<option value="UTC-0930">UTC-09:30 (Marquesas Islands)</option>
+					<option value="UTC-0900">UTC-09:00 (Alaska)</option>
+					<option value="UTC-0800">UTC-08:00 (Pacific Time - US &amp; Canada)</option>
+					<option value="UTC-0700">UTC-07:00 (Mountain Time - US &amp; Canada)</option>
+					<option value="UTC-0600 ">UTC-06:00 (Central Time - US &amp; Canada)</option>
+					<option value="UTC-0500 ">UTC-05:00 (Eastern Time - US &amp; Canada)</option>
+					<option value="UTC-0400 ">UTC-04:00 (Atlantic Time - Canada)</option>
+					<option value="UTC-0330 ">UTC-03:30 (Newfoundland)</option>
+					<option value="UTC-0300 ">UTC-03:00 (Brazil, Buenos Aires, Georgetown)</option>
+					<option value="UTC-0200 ">UTC-02:00 (Mid-Atlantic)</option>
+					<option value="UTC-0100 ">UTC-01:00 (Azores, Cape Verde Is.)</option>
+					<option value="UTC+0000 ">UTC (Western European Time, London, Lisbon, Casablanca)</option>
+					<option value="UTC+0100 ">UTC+01:00 (Central European Time, West Central Africa)</option>
+					<option value="UTC+0200 ">UTC+02:00 (Eastern European Time, Cairo, Athens)</option>
+					<option value="UTC+0300 ">UTC+03:00 (Moscow, Baghdad, Riyadh)</option>
+					<option value="UTC+0330 ">UTC+03:30 (Tehran)</option>
+					<option value="UTC+0400 ">UTC+04:00 (Abu Dhabi, Muscat, Baku, Tbilisi)</option>
+					<option value="UTC+0430 ">UTC+04:30 (Kabul)</option>
+					<option value="UTC+0500 ">UTC+05:00 (Ekaterinburg, Islamabad, Karachi, Tashkent)</option>
+					<option value="UTC+0530 ">UTC+05:30 (Bombay, Calcutta, Madras, New Delhi, Colombo)</option>
+					<option value="UTC+0545 ">UTC+05:45 (Kathmandu)</option>
+					<option value="UTC+0600 ">UTC+06:00 (Almaty, Dhaka, Colombo)</option>
+					<option value="UTC+0630 ">UTC+06:30 (Yangon, Cocos Islands)</option>
+					<option value="UTC+0700 ">UTC+07:00 (Bangkok, Hanoi, Jakarta)</option>
+					<option value="UTC+0800 ">UTC+08:00 (Beijing, Perth, Singapore, Hong Kong)</option>
+					<option value="UTC+0900 ">UTC+09:00 (Tokyo, Seoul, Osaka, Sapporo, Yakutsk)</option>
+					<option value="UTC+0930 ">UTC+09:30 (Adelaide, Darwin)</option>
+					<option value="UTC+1000 ">UTC+10:00 (Eastern Australia, Guam, Vladivostok)</option>
+					<option value="UTC+1030 ">UTC+10:30 (Lord Howe Island)</option>
+					<option value="UTC+1100 ">UTC+11:00 (Magadan, Solomon Islands, New Caledonia)</option>
+					<option value="UTC+1200 ">UTC+12:00 (Auckland, Wellington, Fiji, Kamchatka)</option>
+					<option value="UTC+1245 ">UTC+12:45 (Chatham Islands)</option>
+					<option value="UTC+1300 "">UTC+13:00 (Tonga, Samoa)</option>
+					<option value="UTC+1400 ">UTC+14:00 (Line Islands)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="utmCoordinates">If possible, enter UTM coordinates of the event:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="utmCoordinates"
+              placeholder="e.g., 29M 568148 9119361"
+            />
+          </div>
+          <div class="form-group">
+            <label for="eventLocation">Otherwise, provide the location of the event:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="eventLocation"
+              placeholder="country, region, city, etc."
+            />
+          </div>
+          <div class="form-group">
+            <label>Is this incident an operation or exercise?</label>
+            <div>
+              <input
+                type="radio"
+                class="btn-check"
+                name="incidentType"
+                id="operationalButton"
+                value="Operational"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-secondary" for="operationalButton">Operational</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="incidentType"
+                id="exerciseButton"
+                value="Exercise"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-secondary" for="exerciseButton">Exercise</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Who is the entity believed to be responsible for the incident?</label>
+            <div id="responsibleEntityButtons">
+              <button type="button" class="btn btn-outline-secondary">US</button>
+              <button type="button" class="btn btn-outline-secondary">Ally or Partner</button>
+              <button type="button" class="btn btn-outline-secondary">Other</button>
+              <button type="button" class="btn btn-outline-secondary">Unknown</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>During which type of operation did the incident occur? (Multiple options may be selected.)</label>
+            <div id="operationTypeButtons">
+              <button type="button" class="btn btn-outline-secondary">Air</button>
+              <button type="button" class="btn btn-outline-secondary">Cyber</button>
+              <button type="button" class="btn btn-outline-secondary">Ground</button>
+              <button type="button" class="btn btn-outline-secondary">Naval</button>
+              <button type="button" class="btn btn-outline-secondary">Unknown</button>
+              <button type="button" class="btn btn-outline-secondary">Other</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Identify the known type of harm:</label>
+            <div id="harmTypeButtons">
+              <button type="button" class="btn btn-outline-secondary">Civilian Killed</button>
+              <button type="button" class="btn btn-outline-secondary">Civilian Injured</button>
+              <button type="button" class="btn btn-outline-secondary">Property Damaged</button>
+              <button type="button" class="btn btn-outline-secondary">Property Destroyed</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Was the event deliberate or dynamic?</label>
+            <div id="eventNatureButtons">
+              <button type="button" class="btn btn-outline-secondary">Deliberate</button>
+              <button type="button" class="btn btn-outline-secondary">Dynamic</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section jumbotron">
+          <h5>Supplemental Report (Phase 2)</h5>
+          <p><em>(DoDI 3000.17 Paragraph 4.5)</em></p>
+          <hr />
+          <div class="form-group">
+            <label for="shooterLocation">Location of shooter/weapon system:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="shooterLocation"
+              placeholder="e.g., 29M 568148 9119361"
+            />
+          </div>
+          <div class="form-group">
+            <label for="targetLocation">Intended Target Location (UTM):</label>
+            <input
+              type="text"
+              class="form-control"
+              id="targetLocation"
+              placeholder="e.g., 29M 568148 9119361"
+            />
+          </div>
+          <div class="form-group">
+            <label for="weaponSystem">Identify weapon system used:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="weaponSystem"
+              placeholder="Type of weapon will eventually be a dropdown selection."
+            />
+          </div>
+          <div class="form-group">
+            <label for="munitionType">Identify munition type used:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="munitionType"
+              placeholder="Type of munition will eventually be a dropdown selection."
+            />
+          </div>
+          <div class="form-group">
+            <label for="roundsFired">Estimated number of rounds fired:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="roundsFired"
+              placeholder="Enter the number of rounds fired, if known."
+            />
+          </div>
+        </div>
+
+        <div class="form-section jumbotron">
+          <h5>Advanced Supplemental Report (Phase 3)</h5>
+          <p><em>(DoDI 3000.17 Paragraph 4.6)</em></p>
+          <hr />
+          <div class="form-group">
+            <label for="targetingProcess">Description of Targeting Process:</label>
+            <textarea
+              class="form-control"
+              id="targetingProcess"
+              rows="3"
+              placeholder="Describe the targeting process leading to the incident."
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="documentation">Attach incident documentation:</label>
+            <input type="file" class="form-control-file" id="documentation" />
+          </div>
+          <div class="form-group">
+            <label for="documentationUrl">Or provide a URL link to available documentation:</label>
+            <input
+              type="url"
+              class="form-control"
+              id="documentationUrl"
+              placeholder="Enter URL"
+            />
+          </div>
+        </div>
+
+        <div class="form-group badge badge-secondary">
+          <label for="reportId">Report ID:</label>
+          <input type="text" class="form-control" id="reportId" placeholder=" Enter Report ID" />
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Submit Form</button>
+          <button type="reset" class="btn btn-danger">Reset Form</button>
+        </div>
+      </form>
+      <div class="text-center mt-4">
+        <p class="font-weight-bold">**DRAFT**</p>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content text-center">
+          <div class="modal-body">
+            <img src="https://qbellc-my.sharepoint.com/:i:/r/personal/erik_turchin_qbe_net/Documents/us-army-emblem-clipart-png-logo-0.png?csf=1&web=1&e=6p5qOc" alt="logo" class="mx-auto d-block" style="width: 100px; height: auto;" />
+            <h3 class="mt-3">Form Submitted</h3>
+            <p>Your form has been submitted successfully.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+      
+
+
+    <script>
+      // This section of code sets up event listeners for the form submission. When the form is submitted, the following code is executed:
+      document.getElementById("incidentForm").addEventListener("submit", function(event) {
+        // The first event listener shows a modal (bootstrap modal) when the form is submitted.
+        $('#myModal').modal('show');
+
+        // The second event listener is executed after the modal is shown. It clears all fields in the form, prevents the form from being submitted (so the page does not reload),
+        // gets the form data, converts it to a JSON object, and logs the JSON object to the console.
+
+        // Clear all fields
+        document.getElementById("incidentForm").reset();
+        // But keep the JSON object
+        event.preventDefault();
+        // Get the form data
+        var formData = new FormData(document.getElementById("incidentForm"));
+        // Convert to JSON
+        var jsonData = {};
+        for (var pair of formData.entries()) {
+          jsonData[pair[0]] = pair[1];
+        }
+        // Show in console
+        console.log(jsonData);
+      });
+    </script>
+     
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      // This section of code sets up event listeners for the "Exact" and "Approximate" buttons. When the user clicks on one of these buttons, the corresponding value is set in the "incidentDateType" input field.
+      // The first event listener listens for a click event on the "exactButton" element. When the user clicks this button, it triggers a function. Inside this function, the value of the "incidentDateType" input field is set to "Exact".
+      // The second event listener listens for a click event on the "approximateButton" element. When the user clicks this button, it triggers a function. Inside this function, the value of the "incidentDateType" input field is set to "Approximate".
+
+      // The next two event listeners are similar, but set the value of the "incidentType" input field instead. These listen for click events on the "operationalButton" and "exerciseButton" elements, respectively. When the user clicks one of these buttons, the corresponding value is set in the "incidentType" input field.
+      // Helper function to handle single selection buttons
+      function handleSingleSelection(buttonsContainerId) {
+        const buttonsContainer = document.getElementById(buttonsContainerId);
+        buttonsContainer.addEventListener("click", function (event) {
+          if (event.target.tagName === "BUTTON") {
+            Array.from(buttonsContainer.children).forEach((button) => {
+              button.classList.remove("active");
+            });
+            event.target.classList.add("active");
+          }
+        });
+      }
+
+      // Helper function to handle multiple selection buttons
+      function handleMultipleSelection(buttonsContainerId) {
+        const buttonsContainer = document.getElementById(buttonsContainerId);
+        buttonsContainer.addEventListener("click", function (event) {
+          if (event.target.tagName === "BUTTON") {
+            event.target.classList.toggle("active");
+          }
+        });
+      }
+
+      // Apply single selection handling
+      handleSingleSelection("responsibleEntityButtons");
+      handleSingleSelection("harmTypeButtons");
+      handleSingleSelection("eventNatureButtons");
+
+      // Apply multiple selection handling
+      handleMultipleSelection("operationTypeButtons");
+
+      // Form Validation
+      // This function is called when the form is submitted. It prevents the default form submission behavior, checks if the form is valid, and retrieves form data.
+      // The retrieved form data is stored in a JavaScript object with properties corresponding to the input field IDs.
+      // The value of each input field is obtained using the `getElementById` method, and the value of radio buttons and checkboxes is obtained using the `querySelector` method.
+      // The `operationTypes` property is an array obtained by selecting all the active buttons within the `#operationTypeButtons` container and extracting their text content.
+      // The `responsibleEntity`, `harmType`, `eventNature` properties are obtained by selecting the active button within their respective containers and extracting their text content.
+      // The obtained form data is then logged to the console as a JSON string.
+      function validateForm(event) {
+        event.preventDefault();
+        var form = document.getElementById("incidentForm");
+        var isValid = form.checkValidity();
+        form.classList.add("was-validated");
+
+        if (!isValid) {
+          return false;
+        }
+
+        var formData = {
+          date: document.getElementById("date").value,
+          firstName: document.getElementById("firstName").value,
+          lastName: document.getElementById("lastName").value,
+          reportingUnit: document.getElementById("reportingUnit").value,
+          position: document.getElementById("position").value,
+          phoneNumber: document.getElementById("phoneNumber").value,
+          dsn: document.getElementById("dsn").value,
+          email: document.getElementById("email").value,
+          unit: document.getElementById("unit").value,
+          ccmd: document.getElementById("ccmd").value,
+          incidentDateType: document.querySelector(
+            'input[name="incidentDateType"]:checked'
+          ).value,
+          startDate: document.getElementById("startDate").value,
+          endDate: document.getElementById("endDate").value,
+          timezone: document.getElementById("timezone").value,
+          utmCoordinates: document.getElementById("utmCoordinates").value,
+          eventLocation: document.getElementById("eventLocation").value,
+          incidentType: document.querySelector(
+            'input[name="incidentType"]:checked'
+          ).value,
+          responsibleEntity: document.querySelector(
+            '#responsibleEntityButtons .active'
+          )?.textContent.trim() || "", // Get the active button text content
+          operationTypes: Array.from(
+            document.querySelectorAll('#operationTypeButtons .active')
+          ).map((button) => button.textContent.trim()), // Get all active buttons text content
+          harmType: document.querySelector(
+            '#harmTypeButtons .active'
+          )?.textContent.trim() || "", // Get the active button text content
+          eventNature: document.querySelector(
+            '#eventNatureButtons .active'
+          )?.textContent.trim() || "", // Get the active button text content
+          shooterLocation: document.getElementById("shooterLocation").value,
+          targetLocation: document.getElementById("targetLocation").value,
+          weaponSystem: document.getElementById("weaponSystem").value,
+          munitionType: document.getElementById("munitionType").value,
+          roundsFired: document.getElementById("roundsFired").value,
+          targetingProcess: document.getElementById("targetingProcess").value,
+          documentation: document.getElementById("documentation").value,
+          documentationUrl: document.getElementById("documentationUrl").value,
+          reportId: document.getElementById("reportId").value,
+        };
+
+        console.log(JSON.stringify(formData, null, 2));
+      }
+    </script>
+  </body>
+</html>
+
+

@@ -1,0 +1,444 @@
+erDiagram
+    Document {
+        int DocumentId PK
+        string UUID
+        int IncidentId FK
+        int ReportId FK
+        int AuthorityId FK
+        int DocumentTypeId FK
+        int DataPlatformId FK
+        datetime DocumentDate
+        string DocumentProvider
+        boolean DocumentClassified
+        datetime ReleaseDate
+        datetime UploadedTime
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    Incident {
+        int IncidentId PK
+        int IncidentTypeId FK
+        int DocumentId FK
+        int TerrainId FK
+        int CasualtyId FK
+        int EnemyId FK
+        int WeaponId FK
+        int AuthorityId FK
+        int InvestigationId FK
+        int TimezoneId FK
+        int DataPlatformId FK
+        int HarmTypeId FK
+        int DataSourceId FK
+        int ReportId FK
+        int PersonId FK
+        int ResponsiblePartyId FK
+        int CcmdId FK
+        int OperationTypeId FK
+        int EventTypeId FK
+        datetime IncidentDate
+        boolean IncidentDateExact
+        datetime IncidentDateTimeStart
+        datetime IncidentDateTimeEnd
+        datetime DateFires
+        int NumberRoundsFired
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    Report {
+        int ReportId PK
+        int PersonId FK
+        int IncidentId FK
+        int InvestigationId FK
+        int CcmdId FK
+        int SubmissionId FK
+        datetime DateReporting
+        string ReportingUnit
+        string PositionReporter
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    Person {
+        int PersonId PK
+        int TerrainId FK
+        int CasualtyId FK
+        int IncidentId FK
+        int InvestigationId FK
+        int EnemyId FK
+        int AuthorityId FK
+        int DocumentId FK
+        string FirstName
+        string LastName
+        string PhoneNumber
+        string PhoneNumberExt
+        string Dsn
+        string Email
+        string Unit
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    Casualty {
+        int CasualtyId PK
+        int HarmTypeId FK
+        int IncidentId FK
+        int WeaponId FK
+        int InvestigationId FK
+        string CasualtyName
+        decimal CondolencePayOut
+        string StructuralConditions
+        string StructuralDamage
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    Terrain {
+        int TerrainId PK
+        int IncidentId FK
+        string Country
+        string Region
+        string City
+    }
+    Authority {
+        int AuthorityId PK
+        int DataPlatformID FK
+        int TerrainId FK
+        int OperationTypeId FK
+        int EventTypeId FK
+        string AuthorityName
+        string CombatantCommand
+        string Location
+        string TargetUTM
+        string TargetingProcess
+        string CommandChain
+        string Readiness
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    Investigation {
+        int InvestigationId PK
+        int AuthorityId FK
+        int DataPlatformId FK
+        int DisseminationId FK
+        int DocumentId FK
+        int IncidentId FK
+        int ReportId FK
+        int InvestigationTypeId FK
+        datetime DateStartInvestigation
+        datetime DateExtentedInvestigation
+        string InvestigationStatus
+        datetime InvestigationIssueDate
+        string InvestigationAccountabilityMeasures
+        string InvestigationAdditionalComments
+        string InvestigationAidOrganizations
+        string InvestigationAttachments
+        string InvestigationConfidentialityLevel
+        string InvestigationLongTermAssistance
+        string InvestigationMitigationMeasures
+        string InvestigationParty
+        string InvestigationReparationEfforts
+        string InvestigationsConducted
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    Enemy {
+        int EnemyId PK
+        int IncidentId FK
+        int InvestigationId FK
+        int ReportId FK
+        int TerrainId FK
+        string Location
+        string Shooter
+        string EnemyUnit
+        string EnemyName
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    Weapon {
+        int WeaponId PK
+        int WeaponSystemId FK
+        int MunitionTypeId FK
+        int IncidentId FK
+        int AuthorityId FK
+        int InvestigationId FK
+        int ReportId FK
+        string WeaponName
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    WeaponSystem {
+        int WeaponSystemId PK
+        int MunitionTypeId FK
+        string WeaponSystemProvider
+        string MadeFrom
+    }
+    ResourceIndex {
+        int Term PK
+        string UUID
+        int DocumentId FK
+        int DataResourceId FK
+        string Field
+        datetime ResourceDate
+        string ResourceProvider
+        string ResourceClassified
+        datetime ReleaseDate
+        datetime UploadedTime
+    }
+    Submission {
+        int SubmissionId PK
+        int IncidentId FK
+        string SubmissionSource
+    }
+    DataSource {
+        int DataSourceId PK
+        int DataPlatformId FK
+        int AuthorityId FK
+        int DocumentTypeId FK
+        int ActionId FK
+        string DataSourceName
+        string DataSourceProvider
+        string DataSourceOwner
+        datetime ReleaseDate
+        string DataSourceFormat
+        int DataSourceSize
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    MissionPlan {
+        int MissionPlanId PK
+        int DataPlatformId FK
+        int AuthorityId FK
+        int ActionId FK
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    ObservationPlan {
+        int ObservationPlanId PK
+        int DataPlatformId FK
+        int DataSourceId FK
+        int AuthorityId FK
+        int ActionId FK
+        datetime LastModifiedTime
+        string LastModifiedBy
+    }
+    Fire {
+        int FireId PK
+        int ActionId FK
+        int MetadataId FK
+        int ProductDescriptionId FK
+        int OrganizationId FK
+        int EventTypeId FK
+        int DocumentId FK
+        int TerrainId FK
+        string Fires
+    }
+    Action {
+        int ActionId PK
+        string AFATDSActionObjective
+        string ActionResource
+        string ActionOfEffect
+        string apiEndpoint
+        datetime creationDate
+        string dataQualityMetrics
+        string description
+        string domainDescription
+        datetime expirationDateTime
+        string feedbackEmail
+        string caveats
+        int fileSize
+        string hashAlgorithm
+        string identifier
+        string inputPort
+        string authorizationReference
+        string locationTag
+        string checksum
+        string logicalDataModel
+        string maturityLevel
+        string physicalDataSchema
+        string format
+        string pointOfContact
+        string conformsToStandard
+        string provenance
+        string disclosureAndReleasability
+        string searchKeywordTags
+        string handlingRestrictions
+        string serviceLevelMetrics
+        string classification
+        string serviceLevelObjective
+        string declassification
+        string usageAgreement
+        string geospatialCoverage
+        string temporalCoverage
+    }
+    Metadata {
+        int MetadataId PK
+        int DocumentId FK
+        string MetadataCreator
+        string MetadataTitle
+        string apiProtocol
+        string conformsToStandard
+        string Elements
+        string MetadataPublisher
+        datetime expirationDateTime
+        string version
+        int Quantity
+        string hashAlgorithm
+    }
+    ProductDescription {
+        int ProductDescriptionId PK
+        string PLI_Data
+    }
+    Organization {
+        int OrganizationId PK
+        int TerrainId FK
+        string Address
+        string City
+        string State
+        string Zip
+        string County
+        float Latitude
+        float Longitude
+        string Website
+        string Email
+        string Phone
+    }
+    CCMD {
+        int CcmdId PK
+        string CcmdName
+    }
+    Timezone {
+        int TimezoneId PK
+        string TimezoneName
+    }
+    ResponsibleParty {
+        int ResponsiblePartyId PK
+        string ResponsibleParty
+        string ResultBy
+    }
+    IncidentType {
+        int IncidentTypeId PK
+        string IncidentType
+        string ResultBy
+    }
+    HarmType {
+        int HarmTypeId PK
+        string HarmType
+        string ResultBy
+    }
+    EventType {
+        int EventTypeId PK
+        string EventType
+        string Task
+        string CandidateTargetList
+        string RuleOfEngagement
+    }
+    MunitionType {
+        int MunitionTypeId PK
+        string MunitionType
+    }
+    OperationType {
+        int OperationTypeId PK
+        string OperationType
+        string ResultBy
+    }
+    Dissemination {
+        int DisseminationId PK
+        string SensitiveInformation
+        string Videos
+        string Photographs
+        string LegalReview
+        string FinalApproval
+        string Disposition
+    }
+    InvestigationType {
+        int InvestigationTypeId PK
+        string InvestigationType
+    }
+    Targeting {
+        int TargetingId PK
+        string TargetingType
+    }
+    DocumentType {
+        int DocumentTypeId PK
+        string DocumentType
+    }
+    DataPlatform {
+        int DataPlatformId PK
+        string DataPlatformName
+        string Proponent
+        string Owner
+        string ApprovedUse
+    }
+
+    Document ||--o{ Incident : "relates to"
+    Document ||--o{ Report : "contains"
+    Document ||--o{ Investigation : "documents"
+    Document ||--o{ DataSource : "contains"
+    Document ||--o{ Fire : "documents"
+    Document }|--|| DocumentType : "categorized as"
+    Document }|--|| DataPlatform : "hosted on"
+    Incident ||--o{ Report : "generates"
+    Incident ||--o{ Casualty : "involves"
+    Incident ||--o{ Investigation : "leads to"
+    Incident ||--|| Terrain : "occurs in"
+    Incident ||--o{ Enemy : "involves"
+    Incident ||--o{ Weapon : "uses"
+    Incident ||--o{ Submission : "has"
+    Incident ||--|| CCMD : "occurs in"
+    Incident ||--|| Timezone : "occurs in"
+    Incident ||--|| ResponsibleParty : "associated with"
+    Incident ||--o{ Targeting : "involves"
+    Incident }|--|| DataPlatform : "recorded on"
+    Report ||--|| Person : "submitted by"
+    Report ||--o{ Investigation : "informs"
+    Investigation ||--o{ Document : "produces"
+    Investigation }|--|| InvestigationType : "categorized as"
+    Investigation }|--|| DataPlatform : "uses"
+    Investigation }|--|| Dissemination : "uses"
+    Authority ||--o{ Document : "issues"
+    Authority ||--o{ Investigation : "conducts"
+    Authority ||--o{ Weapon : "authorizes"
+    Authority ||--o{ DataSource : "manages"
+    Authority ||--o{ MissionPlan : "creates"
+    Authority ||--o{ ObservationPlan : "creates"
+    Authority ||--o{ Targeting : "performs"
+    Authority }|--|| DataPlatform : "uses"
+    Document ||--o{ ResourceIndex : "indexed by"
+    Submission ||--o{ Report : "associated with"
+    Person ||--o{ Incident : "involved in"
+    Person ||--o{ Investigation : "involved in"
+    Person ||--|| Enemy : "may be"
+    Person ||--|| Authority : "may be"
+    Person ||--o{ Document : "associated with"
+    Organization ||--o{ Person : "employs"
+    Organization ||--o{ Incident : "involved in"
+    Organization ||--o{ Investigation : "participates in"
+    Casualty ||--o{ Investigation : "subject of"
+    Enemy ||--o{ Investigation : "subject of"
+    Enemy ||--o{ Report : "mentioned in"
+    Enemy ||--|| Terrain : "located in"
+    Weapon ||--|| WeaponSystem : "part of"
+    Weapon ||--o{ Report : "mentioned in"
+    Weapon ||--o{ Investigation : "involved in"
+    Weapon }|--|| MunitionType : "uses"
+    WeaponSystem }|--|| MunitionType : "uses"
+    DataSource ||--o{ Incident : "provides data for"
+    DataSource ||--o{ ObservationPlan : "used in"
+    DataSource }|--|| DataPlatform : "hosted on"
+    MissionPlan ||--o{ Incident : "relates to"
+    MissionPlan }|--|| DataPlatform : "uses"
+    ObservationPlan ||--o{ Incident : "relates to"
+    ObservationPlan }|--|| DataPlatform : "uses"
+    Fire ||--|| Action : "associated with"
+    Fire ||--|| Metadata : "described by"
+    Fire ||--|| ProductDescription : "described by"
+    Fire ||--|| Organization : "associated with"
+    Fire ||--|| Terrain : "occurs in"
+    Metadata ||--|| Document : "describes"
+    Organization ||--|| Terrain : "located in"
+    Incident }|--|| IncidentType : "categorized as"
+    Casualty }|--|| HarmType : "categorized as"
+    Incident }|--|| EventType : "categorized as"
+    Fire }|--|| EventType : "categorized as"
+    Authority }|--|| OperationType : "conducts"
+    Incident }|--|| OperationType : "categorized as"
+    Authority }|--|| EventType : "handles"
+    Authority ||--|| Terrain : "operates in"
+
