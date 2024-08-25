@@ -10,3 +10,7 @@ docker rm -vf $(docker ps -aq)
 
 #to remove images:
 docker rmi -f $(docker images -aq)
+
+
+#for redis in docker
+docker pull redis
