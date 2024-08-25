@@ -43,3 +43,4 @@ CMD [ "python", "app.py"]
 
 #Expose server port
 EXPOSE 8050
+EXPOSE 6379

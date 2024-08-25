@@ -1,0 +1,12 @@
+
+# update requirements.txt
+# cd to the proper directory where docker file is
+
+docker build -t docker_analytics_platform .
+docker run -p 8050:8050 docker_analytics_platform
+
+#remove containers
+docker rm -vf $(docker ps -aq)
+
+#to remove images:
+docker rmi -f $(docker images -aq)
