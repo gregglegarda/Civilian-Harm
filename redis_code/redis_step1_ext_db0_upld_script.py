@@ -5,16 +5,22 @@ cwd = os.getcwd()
 print(cwd)
 
 # Connect to the Redis server
-r = redis.Redis(host='localhost', port=6379, db=0)
+# Create Redis client
+#r = redis.Redis(host='localhost', port=6379)
+r = redis.Redis(
+    host='localhost',
+    port=6379,
+    charset="utf-8",
+    decode_responses=True
+)
+
+#r = redis.Redis(host='localhost', port=6379, db=0)
 
 
 def load_csv_to_redis(file_path, name):
 
     # Read CSV file into a DataFrame
     df = pd.read_csv(file_path)
-
-    # Initialize Redis connection
-    r = redis.Redis()
 
     for index, row in df.iterrows():
         row_id = row[name.capitalize()+'UUID']
@@ -32,10 +38,10 @@ def load_csv_to_redis(file_path, name):
 def get_data_from_redis(name):
     rows = []
     row_ids = r.smembers(name+'s')
+
     for row_id in row_ids:
-        row = r.hgetall(f'{name}:{row_id.decode()}')
-        row_data = {k.decode(): v.decode() for k, v in row.items()}
-        rows.append(row_data)
+        row = r.hgetall(f'{name}:{row_id}')
+        rows.append(row)
     return rows
 
 
@@ -53,18 +59,19 @@ def main():
 
     # Load CSV data into Redis (in specific set and key name)
     load_csv_to_redis(submissions_path, "submission")
-    load_csv_to_redis(incidents_path, "incident")
-    load_csv_to_redis(assessments_path, "assessment")
-    load_csv_to_redis(investigations_path, "investigation")
-    load_csv_to_redis(chmr_cro_path, "organization")
-    load_csv_to_redis(chmr_dmp_users_path, "organization")
-    load_csv_to_redis(chmr_test_data_path, "test")
+    #load_csv_to_redis(incidents_path, "incident")
+    #load_csv_to_redis(assessments_path, "assessment")
+    #load_csv_to_redis(investigations_path, "investigation")
+    #load_csv_to_redis(chmr_cro_path, "organization")
+    #load_csv_to_redis(chmr_dmp_users_path, "organization")
+    #load_csv_to_redis(chmr_test_data_path, "test")
 
-    data_from_redis = get_data_from_redis(chmr_dmp_users_path)
+    data_from_redis = get_data_from_redis("submission")
     df_data_from_redis = pd.DataFrame(data_from_redis)
 
     print("Test Redis DataFrame:")
     print(df_data_from_redis)
+    df_data_from_redis.to_csv("/Users/gregglegarda/Desktop/test.csv")
 
 
 if __name__ == "__main__":

@@ -12,5 +12,26 @@ docker rm -vf $(docker ps -aq)
 docker rmi -f $(docker images -aq)
 
 
-#for redis in docker
+###for redis in docker##
+
+#create docker redis instance
 docker pull redis
+
+#run docker image
+#through docker desktop orr..
+docker run -d --name my-redis-stack -p 6379:6379  redis/redis-stack-server:latest
+
+##check running images
+docker ps
+
+#Connect database. 885 is the firs 3 alphanumeric character of the container ID
+$ docker exec -it 885 sh
+
+#then
+redis-cli
+
+#test
+PING
+
+#persistence
+$ docker run -d --name my-redis-stack -p 6379:6379 -v /Users/my-redis/:/data -e REDIS_ARGS="--requirepass your_password_here --appendonly yes" redis/redis-stack-server:latest

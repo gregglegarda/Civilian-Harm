@@ -7,12 +7,9 @@ import redis
 
 
 # IF SINGLE COMBATANT COMMAND...
-
-
 # CONNECT TO DATABASE
 # Connect to the Redis server
 r = redis.Redis(host='localhost', port=6379, db=2)
-
 
 # EXTRACT DATA
 # Function to retrieve data from redis_code
@@ -34,6 +31,29 @@ data_connection_investigations = get_data_from_redis("investigation")
 df_submissions = pd.DataFrame(data_connection_submissions)
 df_incidents = pd.DataFrame(data_connection_incidents)
 df_investigations = pd.DataFrame(data_connection_investigations)
+
+
+# DATA FRAMES FROM CSV, NOT REDIS
+import os
+cwd = os.getcwd()
+print(cwd)
+# Path to the CSV file
+submissions_path = cwd+'/redis_code/ccmd_data/submissions_data.csv'
+incidents_path = cwd+'/redis_code/ccmd_data/incidents_data.csv'
+assessments_path = cwd + '/redis_code/ccmd_data/assessments_data.csv'
+investigations_path = cwd+'/redis_code/ccmd_data/investigations_data.csv'
+chmr_cro_path = cwd+'/redis_code/ccmd_data/casualty_recording_organizations.csv'
+chmr_dmp_users_path = cwd+'/redis_code/ccmd_data/chmr_dmp_users.csv'
+chmr_test_data_path = cwd+'/redis_code/ccmd_data/chmr_test_data.csv'
+
+df_submissions = pd.read_csv(submissions_path)
+df_incidents = pd.read_csv(incidents_path)
+df_investigations = pd.read_csv(investigations_path)
+
+
+
+
+
 
 
 # TRANSFORM TO PROPER FORMAT
