@@ -19,7 +19,8 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 
 COPY assets/ /assets/
-COPY redis_code/ccmd_data/ /ccmd_data/
+COPY redis_code/ /redis_code/
+COPY redis_code/ccmd_data/ /redis_code/ccmd_data/
 COPY joint_data/ /joint_data/
 
 COPY page_data_model/ /page_data_model/
