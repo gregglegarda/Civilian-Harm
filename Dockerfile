@@ -24,7 +24,7 @@ COPY redis_code/ccmd_data/ /redis_code/ccmd_data/
 COPY joint_data/ /joint_data/
 
 COPY page_data_model/ /page_data_model/
-COPY page_historical_data/ /page_explore_data/
+COPY page_historical_data/ /page_historical_data/
 COPY page_home/ /page_home/
 COPY page_incident_form/ /page_incident_form/
 COPY page_interactive_map/ /page_interactive_map/
