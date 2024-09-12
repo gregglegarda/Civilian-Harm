@@ -1,9 +1,9 @@
-
+#---------------------------- DOCKERIZE YOUR APP -------------------------#
 # update requirements.txt
 # cd to the proper directory where docker file is
 
-docker build -t docker_analytics_platform .
-docker run -p 8050:8050 docker_analytics_platform
+docker build -t docker_chmr_dmp_dashboard .
+docker run -p 8050:8050 docker_chmr_dmp_dashboard
 
 #remove containers
 docker rm -vf $(docker ps -aq)
@@ -11,9 +11,28 @@ docker rm -vf $(docker ps -aq)
 #to remove images:
 docker rmi -f $(docker images -aq)
 
+#---------------------------- INSTALL GOOGLE CLOUD CLI -------------------------#
 
+# download targz  and run this to the root folder
+./google-cloud-sdk/install.sh
+
+
+#---------------------------- UPLOAD YOUR DOCKER CONTAINER IN GOOGLE ARTIFACTS -------------------------#
+
+# go to google cloud run
+#search artifact registry
+# create repository
+# go to repository and copy url
+
+# go to local terminal
+# cd to the proper directory where docker file is
+
+docker tag <name of local docker image> <url from google repository>
+docker push <url from google repository>
+
+
+#----------------------------- FOR REDIS ----------------------#
 ###for redis in docker##
-
 #create docker redis instance
 docker pull redis
 

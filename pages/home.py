@@ -57,8 +57,32 @@ card7 = dbc.Card([
 
 card8 = dbc.Card([
                     html.A([
-                        html.Img(alt="Intelink",src="assets/intelink.png",style={'width':'100%'}
-                    )],href="https://www.intelink.gov/"),
+                        html.Img(alt="Advana",src="assets/advana.png",style={'width':'100%'}
+                    )],href="https://www.boozallen.com/d/insight/thought-leadership/advanced-enterprise-analytics-at-the-defense-department.html"),
+], style={'padding': '10px', 'background':app_theme.card_border_color})
+
+card9 = dbc.Card([
+                    html.A([
+                        html.Img(alt="Databricks",src="assets/databricks.png",style={'width':'100%'}
+                    )],href="https://www.databricks.com/"),
+], style={'padding': '10px', 'background':app_theme.card_border_color})
+
+card10 = dbc.Card([
+                    html.A([
+                        html.Img(alt="Tableau",src="assets/tableau.png",style={'width':'100%'}
+                    )],href="https://www.tableau.com/"),
+], style={'padding': '10px', 'background':app_theme.card_border_color})
+
+card11 = dbc.Card([
+                    html.A([
+                        html.Img(alt="Servicenow",src="assets/servicenow.png",style={'width':'100%'}
+                    )],href="https://www.servicenow.com/"),
+], style={'padding': '10px', 'background':app_theme.card_border_color})
+
+card12 = dbc.Card([
+                    html.A([
+                        html.Img(alt="OMNI",src="assets/qlik.png",style={'width':'100%'}
+                    )],href="https://www.qlik.com/us"),
 ], style={'padding': '10px', 'background':app_theme.card_border_color})
 
 layout = html.Div([
@@ -82,6 +106,10 @@ layout = html.Div([
                 dbc.Col([card6], width={'size': 2}, style={'padding':'50px'}),
                 dbc.Col([card7], width={'size': 2}, style={'padding':'50px'}),
                 dbc.Col([card8], width={'size': 2}, style={'padding':'50px'}),
+                dbc.Col([card9], width={'size': 2}, style={'padding':'50px'}),
+                dbc.Col([card10], width={'size': 2}, style={'padding':'50px'}),
+                dbc.Col([card11], width={'size': 2}, style={'padding':'50px'}),
+                dbc.Col([card12], width={'size': 2}, style={'padding':'50px'}),
             ]),
     ], fluid=True,
         style={'background-color': app_theme.visual_card_background_color,

@@ -55,7 +55,7 @@ layout = html.Div([
                     dbc.Row([
                         html.Div([html.Img(src=r'assets/us_army.png',style={'padding': '50px','padding-bottom':'10px', 'padding-top':'10px','width': '20%','justify': 'center'} ,className = 'center')],style={'width':'100'}),
                         html.H2("Civilian Harm Incident Reporting Form", style={'padding':'10px', 'padding-top':'10px'}),
-                        html.Div([html.Img(src=r'assets/chirf_banner.png',style={'padding': '50px','padding-bottom':'10px', 'padding-top':'10px','width': '100%', 'justify': 'center'},className='center')], style={'width': '100'}),
+                        #html.Div([html.Img(src=r'assets/chirf_banner.png',style={'padding': '50px','padding-bottom':'10px', 'padding-top':'10px','width': '100%', 'justify': 'center'},className='center')], style={'width': '100'}),
                         html.Div([dbc.Alert("The Civilian Harm Incident Report Form (CHIRF) supports "
                                       "CHMR-AP, Objective 6 by standardizing data collection on civilian harm "
                                       "incidents within the DoD. The CHIRF ensures consistent data formatting and "
@@ -435,15 +435,38 @@ layout = html.Div([
                             html.Hr(),
                             #Review Map portion
                             dbc.Row([
-                                html.P(html.Em("(Please review if your information is correct)")),
-                                html.P(html.Em("(Please review if your information is correct)")),
-                                html.P(html.Em("(Please review if your information is correct)")),
-                                html.P(html.Em("(Please review if your information is correct)")),
-                                html.P(html.Em("(Please review if your information is correct)")),
-                                html.P(html.Em("(Please review if your information is correct)")),
-                                html.P(html.Em("(Please review if your information is correct)")),
-                                html.P(html.Em("(Please review if your information is correct)")),
+                                html.P(html.Em("Date:")),
+                                html.P(html.Em("First Name:")),
+                                html.P(html.Em("Last Name:")),
+                                html.P(html.Em("Reporting Unit:")),
+                                html.P(html.Em("Position:")),
+                                html.P(html.Em("Phone Number:")),
+                                html.P(html.Em("DSN:")),
+                                html.P(html.Em("Email:")),
+                                html.P(html.Em("Unit:")),
+                                html.P(html.Em("Combatant Command (CCMD):")),
+                                html.P(html.Em("Is the incident date or date range exact or approximate?:")),
+                                html.P(html.Em("Incident Date or Date Range:")),
+                                html.P(html.Em("If possible, enter UTM coordinates of the event:")),
+                                html.P(html.Em("Otherwise, provide the location of the event:")),
+                                html.P(html.Em("Is this incident an operation or exercise?:")),
+                                html.P(html.Em("Who is the entity believed to be responsible for the incident?:")),
+                                html.P(html.Em("During which type of operation did the incident occur? (Multiple options may be selected.):")),
+                                html.P(html.Em("Identify the known type of harm:")),
+                                html.P(html.Em("Was the event deliberate or dynamic?:")),
+                                html.P(html.Em("Location of shooter/weapon system:")),
+                                html.P(html.Em("Intended Target Location (UTM):")),
+                                html.P(html.Em("Identify weapon system used:")),
+                                html.P(html.Em("Identify munition type used:")),
+                                html.P(html.Em("Estimated number of rounds fired:")),
+                                html.P(html.Em("Description of Targeting Process:")),
+                                html.P(html.Em("Attach incident documentation:")),
+                                html.P(html.Em("Or provide a URL link to available documentation:")),
+                                html.P(html.Em("Report ID:")),
+                                html.P(html.Em("Submit Form:")),
+                                html.P(html.Em("Reset Form:")),
                             ]),
+
 
                             dbc.Container([
                                 # Setup another map to that mirrors the edit control geometries using the GeoJSON component.
