@@ -36,7 +36,7 @@ url_templates = ["http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}",
                 "http://mt0.google.com/vt/lyrs=p&hl=en&x={x}&y={y}&z={z}",
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                  ]
-attribution = 'Project by <a href="http://gregglegarda.com">Gregg Legarda</a>'
+attribution = '<a href="http://gregglegarda.com"></a>'
 
 
 map =  html.Div([
@@ -46,7 +46,7 @@ map =  html.Div([
                 dl.LayersControl(
                     [dl.BaseLayer(dl.TileLayer(url=template, attribution=attribution),
                                   name=key, checked=key == keys[0]) for key,template in zip(keys,url_templates)]+
-                    [dl.Overlay(dl.LayerGroup(weather), name="weather", checked=True)]
+                    [dl.Overlay(dl.LayerGroup(weather), name="weather", checked=False)]
                 ),
                 #toggling raster layer
                 dl.LayersControl([

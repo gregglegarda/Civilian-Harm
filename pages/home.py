@@ -25,8 +25,8 @@ card2 = dbc.Card([
 
 card3 = dbc.Card([
                     html.A([
-                        html.Img(alt="Records",src="assets/records.png",style={'width':'100%'}
-                    )],href="/incident_form"),
+                        html.Img(alt="MIM",src="assets/mim.png",style={'width':'100%'}
+                    )],href="https://www.mimworld.org/"),
 ], style={'padding': '10px', 'background':app_theme.card_border_color})
 
 
@@ -39,7 +39,7 @@ card4 = dbc.Card([
 
 card5 = dbc.Card([
                     html.A([
-                        html.Img(alt="Data Bases",src="assets/databases.png",style={'width':'100%'}
+                        html.Img(alt="OMNI",src="assets/omni.png",style={'width':'100%'}
                     )],href="/data_model",),
 ], style={'padding': '10px', 'background':app_theme.card_border_color})
 
@@ -81,8 +81,14 @@ card11 = dbc.Card([
 
 card12 = dbc.Card([
                     html.A([
-                        html.Img(alt="OMNI",src="assets/qlik.png",style={'width':'100%'}
+                        html.Img(alt="QLIK",src="assets/qlik.png",style={'width':'100%'}
                     )],href="https://www.qlik.com/us"),
+], style={'padding': '10px', 'background':app_theme.card_border_color})
+
+card13 = dbc.Card([
+                    html.A([
+                        html.Img(alt="NIEM",src="assets/niem.png",style={'width':'100%'}
+                    )],href="https://www.niem.gov/"),
 ], style={'padding': '10px', 'background':app_theme.card_border_color})
 
 layout = html.Div([
@@ -94,23 +100,41 @@ layout = html.Div([
     # MAIN CONTENT ROW
     dbc.Container([
             dbc.Row([
+                html.Div([html.Img(src=r'assets/logo.svg',
+                                   style={'padding': '50px', 'padding-bottom': '10px', 'padding-top': '10px',
+                                          'width': '20%', 'justify': 'center'}, className='center')],
+                         style={'width': '100','textAlign': 'center'}),
                 html.H3(["DATA MANAGEMENT PLATFORM"],style={'textAlign': 'center'}),
                 html.H6(["CIVILIAN HARM MITIGATION AND RESPONSE"],style={'textAlign': 'center'})
             ]),
+
             dbc.Row([
+                html.H6(["VISUALIZATIONS AND DASHBOARDS"],style={'textAlign': 'left'}),
                 dbc.Col([card1], width={'size': 2}, style={'padding':'50px'}),
-                dbc.Col([card2], width={'size': 2}, style={'padding':'50px'}),
+                dbc.Col([card10], width={'size': 2}, style={'padding':'50px'}),
+                dbc.Col([card12], width={'size': 2}, style={'padding':'50px'}),
+                dbc.Col([card2], width={'size': 2}, style={'padding': '50px'}),
+
+                html.H6(["DATA MODELS"],style={'textAlign': 'left'}),
                 dbc.Col([card3], width={'size': 2}, style={'padding':'50px'}),
-                dbc.Col([card4], width={'size': 2}, style={'padding':'50px'}),
-                dbc.Col([card5], width={'size': 2}, style={'padding':'50px'}),
                 dbc.Col([card6], width={'size': 2}, style={'padding':'50px'}),
+                dbc.Col([card13], width={'size': 2}, style={'padding':'50px'}),
+
+                html.H6(["FORMS"],style={'textAlign': 'left'}),
+                dbc.Col([card4], width={'size': 2}, style={'padding': '50px'}),
+
+                html.H6(["DATA STORES AND DATABASE"],style={'textAlign': 'left'}),
+                dbc.Col([card5], width={'size': 2}, style={'padding': '50px'}),
                 dbc.Col([card7], width={'size': 2}, style={'padding':'50px'}),
                 dbc.Col([card8], width={'size': 2}, style={'padding':'50px'}),
+
+
+                html.H6(["ANALYTICS"],style={'textAlign': 'left'}),
                 dbc.Col([card9], width={'size': 2}, style={'padding':'50px'}),
-                dbc.Col([card10], width={'size': 2}, style={'padding':'50px'}),
                 dbc.Col([card11], width={'size': 2}, style={'padding':'50px'}),
-                dbc.Col([card12], width={'size': 2}, style={'padding':'50px'}),
+
             ]),
+
     ], fluid=True,
         style={'background-color': app_theme.visual_card_background_color,
                'padding-top': '40px',
