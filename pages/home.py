@@ -104,8 +104,9 @@ layout = html.Div([
                                    style={'padding': '50px', 'padding-bottom': '10px', 'padding-top': '10px',
                                           'width': '20%', 'justify': 'center'}, className='center')],
                          style={'width': '100','textAlign': 'center'}),
-                html.H3(["DATA MANAGEMENT PLATFORM"],style={'textAlign': 'center'}),
-                html.H6(["CIVILIAN HARM MITIGATION AND RESPONSE"],style={'textAlign': 'center'})
+                html.H2(["DATA MANAGEMENT PLATFORM"],style={'textAlign': 'center'}),
+                html.H4(["CIVILIAN HARM MITIGATION AND RESPONSE"],style={'textAlign': 'center', 'padding-bottom': '50px'}),
+                html.Hr(style={'textAlign': 'center'})
             ]),
 
             dbc.Row([
@@ -114,20 +115,23 @@ layout = html.Div([
                 dbc.Col([card10], width={'size': 2}, style={'padding':'50px'}),
                 dbc.Col([card12], width={'size': 2}, style={'padding':'50px'}),
                 dbc.Col([card2], width={'size': 2}, style={'padding': '50px'}),
+                html.Hr(style={'textAlign': 'center'}),
 
                 html.H6(["DATA MODELS"],style={'textAlign': 'left'}),
                 dbc.Col([card3], width={'size': 2}, style={'padding':'50px'}),
                 dbc.Col([card6], width={'size': 2}, style={'padding':'50px'}),
                 dbc.Col([card13], width={'size': 2}, style={'padding':'50px'}),
+                html.Hr(style={'textAlign': 'center'}),
 
                 html.H6(["FORMS"],style={'textAlign': 'left'}),
                 dbc.Col([card4], width={'size': 2}, style={'padding': '50px'}),
+                html.Hr(style={'textAlign': 'center'}),
 
                 html.H6(["DATA STORES AND DATABASE"],style={'textAlign': 'left'}),
                 dbc.Col([card5], width={'size': 2}, style={'padding': '50px'}),
                 dbc.Col([card7], width={'size': 2}, style={'padding':'50px'}),
                 dbc.Col([card8], width={'size': 2}, style={'padding':'50px'}),
-
+                html.Hr(style={'textAlign': 'center'}),
 
                 html.H6(["ANALYTICS"],style={'textAlign': 'left'}),
                 dbc.Col([card9], width={'size': 2}, style={'padding':'50px'}),
